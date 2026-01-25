@@ -1,0 +1,19 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [1.0.0] - 2026-01-25 - Initial Release
+
+### Added
+
+- Initial release
+- Dev mode: Generates Liquid snippet with `<link>` and `<script>` tags pointing to Vite dev server
+- Production mode: Generates Liquid snippet using Shopify's `inline_asset_content` filter
+- Support for CSS preprocessors (SCSS, SASS, Less, Stylus, PostCSS)
+- Support for JavaScript/TypeScript critical files
+- Full HMR support in development
+- Automatic detection of critical files via `critical-` filename prefix
+- Configurable options: `entrypointsDir`, `snippetFile`, `themeRoot`
