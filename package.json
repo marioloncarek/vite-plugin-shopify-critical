@@ -13,20 +13,19 @@
     "inline-assets",
     "inline_asset_content"
   ],
-  "homepage": "",
+  "homepage": "https://github.com/marioloncarek/vite-plugin-shopify-critical#readme",
   "bugs": {
-    "url": "",
+    "url": "https://github.com/marioloncarek/vite-plugin-shopify-critical/issues",
     "email": "mario.loncarek@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git+https://github.com/marioloncarek/vite-plugin-shopify-critical.git"
   },
   "license": "MIT",
   "author": {
     "name": "QUESTION EVERYTHING",
-    "email": "mario.loncarek@gmail.com",
-    "url": ""
+    "email": "mario.loncarek@gmail.com"
   },
   "type": "module",
   "exports": {
