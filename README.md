@@ -14,14 +14,16 @@ This plugin extends the [`vite-plugin-shopify`](https://github.com/barrel/shopif
 
 **Important context on CSS performance:**
 
-Render-blocking CSS does not necessarily mean a slower website. For simple sites that aren't CSS-heavy, the performance impact is minimal. In fact, optimizing JavaScript delivery typically yields greater performance benefits than optimizing CSS. If JavaScript delivery is causing performance issues on your site, consider:
+Render-blocking CSS does not necessarily mean a slower website. For sites that aren't CSS-heavy, the performance impact is minimal. In fact, optimizing JavaScript delivery typically yields greater performance benefits than optimizing CSS. [Read this discussion to find out more](https://github.com/barrel/shopify-vite/issues/218). 
+
+If JavaScript delivery is causing performance issues on your site, consider:
 
 - **Code splitting** - Break your JS into smaller chunks loaded on demand
 - **Islands architecture** - Check out [hydrogen-theme](https://github.com/montalvomiguelo/hydrogen-theme) which implements the "islands" approach for Shopify
 
 Additionally, `vite-plugin-shopify` already supports [preloading stylesheets](https://shopify-vite.barrelny.com/guide/) to minimize render-blocking time, which may be sufficient for many use cases.
 
-That said, inlining critical CSS can provide benefits for:
+That said, if you're identifying CSS as your performance bottleneck, inlining critical CSS can provide benefits for:
 
 - Improving First Contentful Paint (FCP) on CSS-heavy sites
 - Reducing Critical Rendering Path when every millisecond counts

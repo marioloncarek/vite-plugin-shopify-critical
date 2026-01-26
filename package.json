@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-shopify-critical",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "description": "Vite plugin for inlining critical CSS/JS in Shopify themes using inline_asset_content",
   "keywords": [
