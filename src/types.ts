@@ -54,14 +54,13 @@ export interface ResolvedOptions {
  */
 export interface CriticalFileMapping {
   /**
-   * Source filename (used as entry name in Liquid render tag).
-   * @example `"critical-theme.scss"`
-   */
-  sourceFile: string;
-
-  /**
    * Output filename in assets folder.
    * @example `"critical-theme.css"` or `"critical-theme-a1b2c3d4.css"`
    */
   outputFile: string;
+  /**
+   * Source filename (used as entry name in Liquid render tag).
+   * @example `"critical-theme.scss"`
+   */
+  sourceFile: string;
 }

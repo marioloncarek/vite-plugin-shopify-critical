@@ -25,7 +25,7 @@
 import fs from "node:fs";
 import type { AddressInfo } from "node:net";
 import path from "node:path";
-import type { OutputAsset, OutputChunk } from "rollup";
+import type { OutputAsset, OutputChunk } from "rolldown";
 import type { Plugin, ResolvedConfig } from "vite";
 import { normalizePath } from "vite";
 

@@ -51,7 +51,7 @@ If you want to use critical CSS/JS with `vite-plugin-shopify`, you must manually
 ## Requirements
 
 - **Node.js** >= 25.0.0
-- **Vite** >= 7.0.0
+- **Vite** >= 8.0.0
 
 ## Installation
 
