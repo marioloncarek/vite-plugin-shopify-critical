@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.1] - 2026-10-29
+
+### Changed
+
+- Updated development dependencies to their latest versions, including TypeScript 7, tsdown 0.23 and ultracite 8. The Vite peer range stays `^8.0.2`.
+- Imported the Rolldown output types through `vite` instead of from `rolldown`, which is not a declared dependency
+- Named the capture groups in the critical filename regex and gave it the `u` flag
+- No change to the generated snippets
+
 ## [2.0.0] - 2026-03-24
 
 ### Changed

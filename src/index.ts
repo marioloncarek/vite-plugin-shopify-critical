@@ -25,8 +25,7 @@
 import fs from "node:fs";
 import type { AddressInfo } from "node:net";
 import path from "node:path";
-import type { OutputAsset, OutputChunk } from "rolldown";
-import type { Plugin, ResolvedConfig } from "vite";
+import type { Plugin, ResolvedConfig, Rolldown } from "vite";
 import { normalizePath } from "vite";
 
 import {
@@ -42,12 +41,12 @@ import { generateDevSnippetContent, generateProdSnippetContent } from "./utils";
  * Finds the source filename for a critical asset from the bundle chunk.
  */
 function findSourceFile(
-  chunk: OutputAsset | OutputChunk,
+  chunk: Rolldown.OutputAsset | Rolldown.OutputChunk,
   baseName: string,
   ext: string
 ): string {
   if (chunk.type === "asset") {
-    const originalFiles = chunk.originalFileNames ?? [];
+    const originalFiles = chunk.originalFileNames;
     const criticalOriginal = originalFiles.find(
       (f) => path.basename(f, path.extname(f)) === baseName
     );
@@ -157,7 +156,6 @@ export default function shopifyCritical(
    * Dev plugin - generates snippet with link/script tags pointing to Vite dev server.
    */
   const devPlugin: Plugin = {
-    name: `${PLUGIN_NAME}:dev`,
     apply: "serve",
 
     configResolved(resolvedConfig) {
@@ -189,13 +187,13 @@ export default function shopifyCritical(
         }
       });
     },
+    name: `${PLUGIN_NAME}:dev`,
   };
 
   /**
    * Build plugin - scans bundle for critical files and generates snippet with inline_asset_content.
    */
   const buildPlugin: Plugin = {
-    name: `${PLUGIN_NAME}:build`,
     apply: "build",
     enforce: "post",
 
@@ -214,16 +212,20 @@ export default function shopifyCritical(
           continue;
         }
 
-        const baseName = match[1] as string; // e.g., "critical-theme"
-        const ext = match[2] as string; // e.g., "css"
+        // e.g., baseName "critical-theme", ext "css"
+        const { baseName, ext } = match.groups as {
+          baseName: string;
+          ext: string;
+        };
         const sourceFile = findSourceFile(chunk, baseName, ext);
 
         outputMappings.push({
-          sourceFile,
           outputFile: fileName,
+          sourceFile,
         });
       }
     },
+    name: `${PLUGIN_NAME}:build`,
 
     writeBundle() {
       // Ensure snippets directory exists

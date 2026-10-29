@@ -16,7 +16,7 @@ export const CRITICAL_PREFIX = "critical-";
  * Uses fixed 8-character hash assumption from Vite.
  */
 export const CRITICAL_FILENAME_REGEX =
-  /^(critical-.+)-[A-Za-z0-9_-]{8}\.(css|js)$/;
+  /^(?<baseName>critical-.+)-[A-Za-z0-9_-]{8}\.(?<ext>css|js)$/u;
 
 /** CSS file extensions that compile to .css output. */
 export const CSS_EXTENSIONS = [
